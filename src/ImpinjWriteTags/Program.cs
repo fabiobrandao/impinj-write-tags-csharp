@@ -15,7 +15,7 @@ namespace ImpinjWriteTags
 
         static void Main(string[] args)
         {
-            // Criamos uma relação de EPCs a serem gravados, não importa qual o EPC anterior
+            // Criamos uma relação de EPCs a serem gravados
             TagsEncode.Add("E28011602000759B62D20A5D", new TagEncode("303500000000000000000010", "E28011602000759B62D20A5D", "303500000000000000000011"));
 
             Connect("10.0.0.13");
@@ -41,6 +41,7 @@ namespace ImpinjWriteTags
                 Console.WriteLine(string.Format("TID: {0}, Epc Atual: {1} => Novo EPC {2}, Codificado: {3}", entry.Key, entry.Value.CurrentEpc, entry.Value.NewEpc, entry.Value.Encoded ? "Sim" : "Não"));
             }
 
+            Console.WriteLine();
             Console.WriteLine("Pressione qualquer tecla para encerrar...");
             Console.ReadKey();
 
@@ -50,9 +51,20 @@ namespace ImpinjWriteTags
 
         static void Connect(string host)
         {
-            reader.Connect(host);
-            reader.TagsReported += TagsReported;
-            reader.TagOpComplete += TagOpComplete;
+            try
+            {
+                reader.Connect(host);
+                reader.TagsReported += TagsReported;
+                reader.TagOpComplete += TagOpComplete;
+            }
+            catch (OctaneSdkException e)
+            {
+                Console.WriteLine("Octane SDK exception: {0}", e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception : {0}", e.Message);
+            }
         }
 
         static void Disconnect()
@@ -63,18 +75,40 @@ namespace ImpinjWriteTags
 
         static void ApplySettings()
         {
-            Settings settings = reader.QueryDefaultSettings();
-            settings.Report.IncludeFastId = true;
-            settings.Antennas.DisableAll();
-            settings.Antennas.GetAntenna(1).IsEnabled = true;
-            settings.Antennas.GetAntenna(1).TxPowerInDbm = 20;
-            settings.Antennas.GetAntenna(1).RxSensitivityInDbm = -70;
-            reader.ApplySettings(settings);
+            try
+            {
+                Settings settings = reader.QueryDefaultSettings();
+                settings.Report.IncludeFastId = true;
+                settings.Antennas.DisableAll();
+                settings.Antennas.GetAntenna(1).IsEnabled = true;
+                settings.Antennas.GetAntenna(1).TxPowerInDbm = 20;
+                settings.Antennas.GetAntenna(1).RxSensitivityInDbm = -70;
+                reader.ApplySettings(settings);
+            }
+            catch (OctaneSdkException e)
+            {
+                Console.WriteLine("Octane SDK exception: {0}", e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception : {0}", e.Message);
+            }
         }
 
         static void Start()
         {
-            reader.Start();
+            try
+            {
+                reader.Start();
+            }
+            catch (OctaneSdkException e)
+            {
+                Console.WriteLine("Octane SDK exception: {0}", e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception : {0}", e.Message);
+            }
         }
 
         static void Stop()
@@ -120,7 +154,6 @@ namespace ImpinjWriteTags
             foreach (Tag tag in report)
             {
                 //Console.WriteLine(string.Format("EPC: {0}, TID: {1} ", tag.Epc.ToHexString(), tag.Tid.ToHexString()));
-                //continue;
 
                 if (TagsEncode.ContainsKey(tag.Tid.ToHexString()))
                 {
@@ -150,7 +183,6 @@ namespace ImpinjWriteTags
                         {
                             if (writeResult.Result == WriteResultStatus.Success)
                                 TagsEncode[tid].Encoded = true;
-
                         }
                     }
                 }

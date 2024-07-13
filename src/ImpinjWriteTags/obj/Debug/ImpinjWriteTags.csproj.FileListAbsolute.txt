@@ -1,0 +1,14 @@
+D:\_DADOS\GIT-HUB\impinj-write-tags-csharp\src\ImpinjWriteTags\bin\Debug\ImpinjWriteTags.exe.config
+D:\_DADOS\GIT-HUB\impinj-write-tags-csharp\src\ImpinjWriteTags\bin\Debug\ImpinjWriteTags.exe
+D:\_DADOS\GIT-HUB\impinj-write-tags-csharp\src\ImpinjWriteTags\bin\Debug\ImpinjWriteTags.pdb
+D:\_DADOS\GIT-HUB\impinj-write-tags-csharp\src\ImpinjWriteTags\bin\Debug\Impinj.OctaneSdk.dll
+D:\_DADOS\GIT-HUB\impinj-write-tags-csharp\src\ImpinjWriteTags\bin\Debug\LLRP.dll
+D:\_DADOS\GIT-HUB\impinj-write-tags-csharp\src\ImpinjWriteTags\bin\Debug\LLRP.Impinj.dll
+D:\_DADOS\GIT-HUB\impinj-write-tags-csharp\src\ImpinjWriteTags\bin\Debug\Renci.SshNet.dll
+D:\_DADOS\GIT-HUB\impinj-write-tags-csharp\src\ImpinjWriteTags\bin\Debug\Impinj.OctaneSdk.xml
+D:\_DADOS\GIT-HUB\impinj-write-tags-csharp\src\ImpinjWriteTags\bin\Debug\Renci.SshNet.xml
+D:\_DADOS\GIT-HUB\impinj-write-tags-csharp\src\ImpinjWriteTags\obj\Debug\ImpinjWriteTags.csproj.AssemblyReference.cache
+D:\_DADOS\GIT-HUB\impinj-write-tags-csharp\src\ImpinjWriteTags\obj\Debug\ImpinjWriteTags.csproj.CoreCompileInputs.cache
+D:\_DADOS\GIT-HUB\impinj-write-tags-csharp\src\ImpinjWriteTags\obj\Debug\ImpinjWr.84153A0F.Up2Date
+D:\_DADOS\GIT-HUB\impinj-write-tags-csharp\src\ImpinjWriteTags\obj\Debug\ImpinjWriteTags.exe
+D:\_DADOS\GIT-HUB\impinj-write-tags-csharp\src\ImpinjWriteTags\obj\Debug\ImpinjWriteTags.pdb
